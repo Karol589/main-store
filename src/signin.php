@@ -11,8 +11,14 @@
 
     //Get data payload frontend
     $email = $_POST['email'];
-    $passwd = MD5 ($_POST['pswd']);
+    //$passwd = MD5 ($_POST['pswd']);
 
+    $sql_get_password="SELECT password FROM users email ='$email'";
+    $res= pg_query($local_conn, $sql_get_password);
+    $row= pg_fetch_assoc($res);
+    $passwd_db= $row['password'];
+    
+    $passwd = password_verify ($_POST['pswd']);
     $sql_check_email = "
         SELECT 
             id,

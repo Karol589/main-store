@@ -39,12 +39,13 @@ http://localhost/main-store/settings/database.php
         password=$supa_password
     ");
 
-    if (!$supa_conn) {
+    if (!$local_conn) {
         die("Error local connection");
     } else {
         //echo "Success database local connection !!!";
+        //echo "Succes database connection !!!<br>"
     }
-    if (!$local_conn) {
+    if (!$supa_conn) {
         die("Error supa connection");
     } else {
         //echo "<br>Success database supa connection !!!";
